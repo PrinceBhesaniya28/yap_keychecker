@@ -12,11 +12,11 @@ export default function YapEligibilityChecker() {
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center relative overflow-hidden">
       {/* Grid SVG Background */}
-      <div className="absolute inset-0 z-0 bg-[url('/Grid.svg')] bg-cover bg-center" />
+      <div className="absolute inset-0 z-1 bg-[url('/Grid.svg')] bg-cover bg-center" />
       {/* Infinite Scrolling SVG Background */}
       <div className="absolute inset-0 z-0 bg-scroll-vertical" />
       {/* Background grid lines */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:64px_64px] z-0" />
+      {/* <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:64px_64px] z-0" /> */}
 
       {/* Logo */}
       <div className="absolute top-0 left-0 w-full flex justify-center pt-[5vh] z-20 pointer-events-none">
@@ -40,11 +40,12 @@ export default function YapEligibilityChecker() {
           value={walletAddress}
           onChange={(e) => setWalletAddress(e.target.value)}
           placeholder="0x0000000000abcdef1...34078"
-          className="bg-black/80 text-gray-300 px-4 py-2 w-full rounded-full placeholder-gray-600 text-base tracking-wider"
+          className="bg-black/80 text-gray-300 px-4 py-2 w-full rounded-full placeholder-gray-600" style={{ fontSize: '18px' }}
         />
         <button
           onClick={handleCheck}
-          className="bg-[#232323] hover:bg-[#333] text-white px-4 py-2 w-full rounded-full border border-gray-600 text-base font-semibold shadow"
+          className="bg-[#232323] hover:bg-[#333] text-white px-4 py-2 w-full rounded-full border border-gray-600 font-semibold shadow"
+          style={{ fontSize: '18px' }}
         >
           Check
         </button>

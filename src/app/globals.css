@@ -28,10 +28,10 @@ body {
 
 @keyframes scroll-bg {
   0% {
-    background-position-y: 0px;
+    background-position-y: 4654px;
   }
   100% {
-    background-position-y: 4654px;
+    background-position-y: 0px;
   }
 }
 .bg-scroll-vertical {
