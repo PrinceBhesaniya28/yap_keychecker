@@ -1,103 +1,73 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import React, { useState } from 'react';
+
+export default function YapEligibilityChecker() {
+  const [walletAddress, setWalletAddress] = useState('');
+
+  const handleCheck = () => {
+    alert(`Checking eligibility for: ${walletAddress}`);
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center relative overflow-hidden">
+      {/* Grid SVG Background */}
+      <div className="absolute inset-0 z-0 bg-[url('/Grid.svg')] bg-cover bg-center" />
+      {/* Infinite Scrolling SVG Background */}
+      <div className="absolute inset-0 z-0 bg-scroll-vertical" />
+      {/* Background grid lines */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:64px_64px] z-0" />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      {/* Logo */}
+      <div className="absolute top-0 left-0 w-full flex justify-center pt-[5vh] z-20 pointer-events-none">
+        <img
+          src="/apmarket.png"
+          alt="ap.market"
+          className="w-28"
+        />
+      </div>
+
+      {/* Title and Subtitle */}
+      <div className="text-center z-10">
+        <h1 className="text-4xl tracking-wide mb-2 drop-shadow-lg" style={{ fontFamily: "'Jersey 15', cursive", fontSize: '48px', marginBottom: '17px' }}>Yap Key Eligibility Status</h1>
+        <p className="text-gray-300 text-lg tracking-wide" style={{ fontFamily: "'Jersey 15', cursive", fontSize: '36px', opacity: 0.6, marginBottom: '45px' }}>Paste your wallet address to check eligibility status</p>
+      </div>
+
+      {/* Input and Button */}
+      <div className="bg-[#1c1c1c]/80 p-6 rounded-2xl w-[370px] flex flex-col items-center gap-4 z-10 shadow-lg mb-2">
+        <input
+          type="text"
+          value={walletAddress}
+          onChange={(e) => setWalletAddress(e.target.value)}
+          placeholder="0x0000000000abcdef1...34078"
+          className="bg-black/80 text-gray-300 px-4 py-2 w-full rounded-full placeholder-gray-600 text-base tracking-wider"
+        />
+        <button
+          onClick={handleCheck}
+          className="bg-[#232323] hover:bg-[#333] text-white px-4 py-2 w-full rounded-full border border-gray-600 text-base font-semibold shadow"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          Check
+        </button>
+      </div>
+
+      {/* Character Image */}
+      <img
+        src="/character.png"
+        alt="character"
+        className="fixed bottom-0 left-1/2 -translate-x-1/2 w-80 z-10 drop-shadow-2xl pointer-events-none"
+      />
+
+      {/* Side Labels */}
+      <img
+        src="/Yapkey.png"
+        alt="yap key left"
+        className="absolute left-[6%] top-1/2 transform -translate-y-1/2 w-12 z-10"
+      />
+      <img
+        src="/Yapkey.png"
+        alt="yap key right"
+        className="absolute right-[6%] top-1/2 transform -translate-y-1/2 w-12 z-10"
+        />
     </div>
   );
 }

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -23,4 +24,19 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes scroll-bg {
+  0% {
+    background-position-y: 0px;
+  }
+  100% {
+    background-position-y: 4654px;
+  }
+}
+.bg-scroll-vertical {
+  background-image: url('/Scroll.svg');
+  background-repeat: repeat-y;
+  background-size: 100vw auto;
+  animation: scroll-bg 10s linear infinite;
 }
